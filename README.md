@@ -4,7 +4,7 @@
 
 I built an app that calls the OpenWeather API, and renders the weather data in the browser. The app is able to to search for a city, and then the user can see the current and future weather conditions for that selected city. Also, the selected cities will be saved in a search history file. The weather conditions includes an icon, temperature, humidity, and wind speed.
 
-Link to the deployed app:
+Link to the deployed app: https://unit9-weatherdashboard.onrender.com/
 
 ## Table of Contents
 
