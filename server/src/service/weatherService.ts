@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import fs from 'node:fs/promises';
+//import fs from 'node:fs/promises';
 dotenv.config();
 
 // TODO: Define an interface for the Coordinates object
@@ -12,13 +12,13 @@ interface Coordinates {
 
 // TODO: Define a class for the Weather object
 
-class Weather {
+/*class Weather {
 
   constructor() {
 
   }//constructor
 
-}//class Weather
+}//class Weather*/
 
 // TODO: Complete the WeatherService class
 class WeatherService {
@@ -66,11 +66,11 @@ class WeatherService {
   // TODO: Create fetchAndDestructureLocationData method
   // private async fetchAndDestructureLocationData() {}
 
-  private async fetchAndDestructureLocationData() {
+  /*private async fetchAndDestructureLocationData() {
     
     
     
-  }//fetchAndDestructureLocationData
+  }//fetchAndDestructureLocationData*/
 
 
   // TODO: Create fetchWeatherData method
@@ -80,25 +80,25 @@ class WeatherService {
     const response = await fetch(this.buildWeatherQuery(coordinates));
     const data = await response.json();
     return data;
-  }//fetchWeatherData
+  }//fetchWeatherData*
 
 
   // TODO: Build parseCurrentWeather method
   // private parseCurrentWeather(response: any) {}
 
-  private parseCurrentWeather(response: any) {
+  /*private parseCurrentWeather(response: any) {
    
 
-  }//parseCurrentWeather
+  }//parseCurrentWeather*/
 
   
   // TODO: Complete buildForecastArray method
   // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
 
-  private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
+  /*private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
 
 
-  }//buildForecastArray
+  }//buildForecastArray*/
 
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
@@ -107,8 +107,9 @@ class WeatherService {
     this.cityName = city;
     const locationData = await this.fetchLocationData(this.buildGeocodeQuery());
     const coordinates = this.destructureLocationData(locationData);
+    const weatherData = await this.fetchWeatherData(coordinates);
     
-    
+    return weatherData;
   }//getWeatherForCity
 
 }//class WeatherService
