@@ -2,8 +2,9 @@
 
 ## Description
 
+I built an app that calls the OpenWeather API and renders the weather data in the browser. 
 
-Link to the walkthrough video of the app:
+Link to the deployed app:
 
 ## Table of Contents
 
