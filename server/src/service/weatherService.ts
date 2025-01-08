@@ -12,13 +12,15 @@ interface Coordinates {
 
 // TODO: Define a class for the Weather object
 
-/*class Weather {
+class Weather {
+  temperature: number;
+  description: string;
 
-  constructor() {
-
+  constructor(temperature: number, description: string) {
+    this.temperature = temperature;
+    this.description = description;
   }//constructor
-
-}//class Weather*/
+}//class Weather
 
 // TODO: Complete the WeatherService class
 class WeatherService {
@@ -95,10 +97,15 @@ class WeatherService {
   // TODO: Complete buildForecastArray method
   // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
 
-  /*private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
-
-
-  }//buildForecastArray*/
+  private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
+    
+    console.log(currentWeather);
+    
+    return weatherData.map(data => ({
+      ...data,
+      currentWeather
+    }));
+  }//buildForecastArray
 
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
@@ -109,7 +116,9 @@ class WeatherService {
     const coordinates = this.destructureLocationData(locationData);
     const weatherData = await this.fetchWeatherData(coordinates);
     
-    return weatherData;
+    const currentWeather = new Weather(weatherData.main.temp, weatherData.weather[0].description);
+    const forecastArray = this.buildForecastArray(currentWeather, weatherData);
+    return forecastArray;
   }//getWeatherForCity
 
 }//class WeatherService
